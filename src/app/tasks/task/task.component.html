@@ -1,0 +1,11 @@
+<app-card>
+    <article>
+    <h2>{{ tasksObj.title }}</h2>
+    <time>{{ tasksObj.dueDate | date }}</time>
+    <p>{{ tasksObj.summary }}</p>
+    <p class="actions">
+        <button (click)="handleCancelClick()">COMPLETE</button>
+    </p>
+</article>
+</app-card>
+

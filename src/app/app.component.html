@@ -1,0 +1,25 @@
+<app-header />
+
+<main>
+  <ul id="users">
+    @for(user of users; track user.id){
+      <!-- <li *ngFor="let user of users"> -->
+        <li>
+      <app-user
+        [user] = "user"
+        (select)="onSelectUser($event)"
+      [selected] = "user.id === selectId"
+      />
+    </li>
+    }
+  </ul>
+  @if (findUserName) {
+     <!-- <app-task *ngIf="selectId;else fallback" [selectedId]="findUserName!.name" /> -->
+     <app-tasks [selectedName]="findUserName.name" [selectedId]="findUserName.id"/>
+  } @else {
+    <!-- <ng-template #fallback>
+      <p id="fallback">Select a user please</p>
+    </ng-template> -->
+    <p id="fallback">Select a user please</p>
+  }
+</main>
